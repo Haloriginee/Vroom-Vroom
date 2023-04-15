@@ -1,4 +1,4 @@
-import { swatch, fileIcon, ai, logoShirt, stylishShirt } from "../assets";
+import { swatch, file, eve, sticker, car_color } from "../assets";
 
 export const EditorTabs = [
   {

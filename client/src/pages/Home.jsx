@@ -29,6 +29,7 @@ const Home = () => {
             </motion.div>
             <motion.div {...headContentAnimation} className="flex flex-col gap-5">
               <p className="font-normal text-base text-gray-600 max-w-md">
+                text here
               </p>
 
               <CustomButton
