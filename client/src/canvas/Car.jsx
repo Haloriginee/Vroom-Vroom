@@ -57,7 +57,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_9.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -65,15 +65,15 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_8.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
       <mesh
         castShadow
         geometry={nodes.Object_7.geometry}
-        //material={materials.Material}
-        //material-roughness={1}
+        material={materials.Material}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -81,7 +81,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_4.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -89,7 +89,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_10.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -97,7 +97,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_11.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -105,7 +105,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_12.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -113,7 +113,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_13.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -121,7 +121,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_14.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -129,7 +129,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_15.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -137,7 +137,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_59.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -145,7 +145,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_61.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -153,7 +153,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_62.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>
@@ -161,7 +161,7 @@ const Car = () => {
         castShadow
         geometry={nodes.Object_64.geometry}
         material={materials.Material}
-        material-roughness={1}
+        material-roughness={0}
         dispose={null}
       >
       </mesh>

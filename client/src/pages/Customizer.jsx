@@ -13,6 +13,34 @@ const Customizer = () => {
 
   const snap = useSnapshot(state);
 
+  const [file, setFile] = useState("");
+
+  const [prompt, setPrompt] = useState("");
+
+  const [generatingImg, setGeneratingImg] = useState(false);
+
+  const [activeTab, setActiveTab] = useState("");
+
+  const [activeFilter, setActiveFilter] = useState({stickers: true, carColor: false})
+
+  const genTabContent = () => {
+
+    switch (activeTab) {
+      case "colorpicker":
+        return <ColorPicker/>
+
+      case "filepicker":
+        return <FilePicker/>
+
+      case "aipicker":
+        return <AIPicker/>
+
+      default:
+        return null;
+    }
+
+  }
+
   return (
 
     <AnimatePresence>
@@ -29,9 +57,10 @@ const Customizer = () => {
                   <Tab
                     key={tab.name}
                     tab={tab}
-                    handleClick={() => {}}
+                    handleClick={() => setActiveTab(tab.name)}
                   />
                 ))}
+                {genTabContent()}
               </div>
             </div>
           </motion.div>
