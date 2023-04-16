@@ -72,8 +72,8 @@ const Car = () => {
       <mesh
         castShadow
         geometry={nodes.Object_7.geometry}
-        material={materials.Material}
-        material-roughness={1}
+        //material={materials.Material}
+        //material-roughness={1}
         dispose={null}
       >
       </mesh>
