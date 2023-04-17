@@ -30,13 +30,56 @@ const Customizer = () => {
         return <ColorPicker/>
 
       case "filepicker":
-        return <FilePicker/>
+        return <FilePicker
+          file={file}
+          setFile={setFile}
+          readFile={readFile}
+        />
 
       case "aipicker":
         return <AIPicker/>
 
       default:
         return null;
+    }
+
+  }
+
+  const readFile = ( type ) => {
+    reader(file)
+      .then((res) => {
+        handleDecals(type, res);
+        setActiveTab("");
+      })
+  }
+
+  const handleDecals = (type, res) => {
+
+    const decalType = DecalTypes[type];
+
+    state[decalType.stateProperty] = res;
+
+    if(!activeFilter[decalType.filter]) {
+
+      handleActiveFilter(decalType.filter)
+
+    }
+  }
+
+  const handleActiveFilter = (tabName) => {
+
+    switch (tabName) {
+      case "sticker":
+        state.isStickerTexture = !activeFilter[tabName];
+        break;
+
+      case "carColor":
+        state.isFullTexture = !activeFilter[tabName];
+
+      default:
+        state.isFullTexture = false;
+        state.isStickerTexture = true;
+
     }
 
   }
