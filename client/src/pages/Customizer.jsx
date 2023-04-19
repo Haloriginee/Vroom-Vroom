@@ -37,7 +37,12 @@ const Customizer = () => {
         />
 
       case "aipicker":
-        return <AIPicker/>
+        return <AIPicker
+          prompt={prompt}
+          setPrompt={setPrompt}
+          generatingImg={generatingImg}
+          handleSubmit={handleSubmit}
+        />
 
       default:
         return null;
@@ -87,9 +92,26 @@ const Customizer = () => {
         [tabName]: !prevState[tabName]
       }
     })
-
   }
 
+  const handleSubmit = async (t) => {
+
+    if(!prompt) return alert("Ask me something !");
+
+    try {
+
+    } catch (error) {
+
+      alert(error)
+
+    } finally {
+
+      setGeneratingImg(false);
+      setActiveTab("");
+
+    }
+
+  }
 
 
   return (
