@@ -21,7 +21,7 @@ const Customizer = () => {
 
   const [activeTab, setActiveTab] = useState("");
 
-  const [activeFilter, setActiveFilter] = useState({stickers: true, carColor: false})
+  const [activeFilter, setActiveFilter] = useState({carSticker: true, carColor: false})
 
   const genTabContent = () => {
 
@@ -42,7 +42,6 @@ const Customizer = () => {
       default:
         return null;
     }
-
   }
 
   const readFile = ( type ) => {
@@ -59,30 +58,39 @@ const Customizer = () => {
 
     state[decalType.stateProperty] = res;
 
-    if(!activeFilter[decalType.filter]) {
+    if(!activeFilter[decalType.filterTab]) {
 
-      handleActiveFilter(decalType.filter)
-
+      handleActiveFilter(decalType.filterTab)
     }
   }
 
   const handleActiveFilter = (tabName) => {
 
     switch (tabName) {
-      case "sticker":
+      case "carSticker":
         state.isStickerTexture = !activeFilter[tabName];
         break;
 
       case "carColor":
         state.isFullTexture = !activeFilter[tabName];
+        break;
 
       default:
-        state.isFullTexture = false;
         state.isStickerTexture = true;
-
+        state.isFullTexture = false;
+        break;
     }
 
+    setActiveFilter((prevState) => {
+      return {
+        ...prevState,
+        [tabName]: !prevState[tabName]
+      }
+    })
+
   }
+
+
 
   return (
 
@@ -126,11 +134,11 @@ const Customizer = () => {
             >
               {FilterTabs.map((tab) => (
                 <Tab
-                  isFilterTab
-                  isActiveTAb=""
+                  isFilter
+                  isActiveTab={activeFilter[tab.name]}
                   key={tab.name}
                   tab={tab}
-                  handleClick={() => {}}
+                  handleClick={() => handleActiveFilter(tab.name)}
                 />
               ))}
 
@@ -142,5 +150,6 @@ const Customizer = () => {
 
   )
 }
+
 
 export default Customizer

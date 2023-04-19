@@ -1,4 +1,4 @@
-import { swatch, file, eve, sticker, car_color } from "../assets";
+import { swatch, file, eve, carSticker, carColor } from "../assets";
 
 export const EditorTabs = [
   {
@@ -18,16 +18,16 @@ export const EditorTabs = [
 export const FilterTabs = [
   {
     name: "carSticker",
-    icon: sticker,
+    icon: carSticker,
   },
   {
     name: "carColor",
-    icon: car_color,
+    icon: carColor,
   },
 ];
 
 export const DecalTypes = {
-  logo: {
+  sticker: {
     stateProperty: "stickerDecal",
     filterTab: "carSticker",
   },
