@@ -17,7 +17,7 @@ const Customizer = () => {
 
   const [prompt, setPrompt] = useState("");
 
-  const [generatingImg, setGeneratingImg] = useState(false);
+  const [genImg, setGenImg] = useState(false);
 
   const [activeTab, setActiveTab] = useState("");
 
@@ -40,7 +40,7 @@ const Customizer = () => {
         return <AIPicker
           prompt={prompt}
           setPrompt={setPrompt}
-          generatingImg={generatingImg}
+          genImg={genImg}
           handleSubmit={handleSubmit}
         />
 
@@ -51,17 +51,17 @@ const Customizer = () => {
 
   const readFile = ( type ) => {
     reader(file)
-      .then((res) => {
-        handleDecals(type, res);
+      .then((result) => {
+        handleDecals(type, result);
         setActiveTab("");
       })
   }
 
-  const handleDecals = (type, res) => {
+  const handleDecals = (type, result) => {
 
     const decalType = DecalTypes[type];
 
-    state[decalType.stateProperty] = res;
+    state[decalType.stateProperty] = result;
 
     if(!activeFilter[decalType.filterTab]) {
 
@@ -94,11 +94,27 @@ const Customizer = () => {
     })
   }
 
-  const handleSubmit = async (t) => {
+  const handleSubmit = async (type) => {
 
     if(!prompt) return alert("Ask me something !");
 
     try {
+
+      setGenImg(true);
+
+      const response = await fetch("http://localhost:8080/api/v1/dalle", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt,
+        })
+      })
+
+      const data = await response.json();
+
+      handleDecals(type, `data:image/png;base64,${data.photo}`)
 
     } catch (error) {
 
@@ -106,7 +122,7 @@ const Customizer = () => {
 
     } finally {
 
-      setGeneratingImg(false);
+      setGenImg(false);
       setActiveTab("");
 
     }

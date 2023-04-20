@@ -25,8 +25,8 @@ const FilePicker = ({readFile, file, setFile}) => {
       <div className='flex flex-wrap mt-4 gap-3'>
         <CustomButton
           type="outline"
-          title="logo"
-          handleClick={() => readFile("logo")}
+          title="sticker"
+          handleClick={() => readFile("sticker")}
           customStyles="text-xs"
         />
         <CustomButton
