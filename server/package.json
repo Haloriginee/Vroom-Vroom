@@ -2,11 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
   "type": "module",
+  "description": "",
   "scripts": {
     "start": "nodemon index.js"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "cloudinary": "^1.36.1",
     "cors": "^2.8.5",
