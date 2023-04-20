@@ -4,6 +4,9 @@
   "main": "index.js",
   "type": "module",
   "description": "",
+  "engines": {
+    "node": ">=14 <15"
+  },
   "scripts": {
     "start": "nodemon index.js"
   },
@@ -19,4 +22,5 @@
     "nodemon": "^2.0.22",
     "openai": "^3.2.1"
   }
+
 }
