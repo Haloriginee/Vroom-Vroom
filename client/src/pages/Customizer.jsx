@@ -49,12 +49,44 @@ const Customizer = () => {
     }
   }
 
-  const readFile = ( type ) => {
-    reader(file)
-      .then((result) => {
-        handleDecals(type, result);
-        setActiveTab("");
+  const handleSubmit = async (type) => {
+
+    if(!prompt) return alert("Ask me something !");
+
+    try {
+
+      setGenImg(true);
+
+      //  https://vroom-vroom.onrender.com
+
+      /* "engines": {
+  "node": ">=14 <15"
+}, */
+
+      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          prompt,
+        })
       })
+
+      const data = await response.json();
+
+      handleDecals(type, `data:image/png;base64,${data.photo}`)
+
+    } catch (error) {
+
+      alert(error)
+
+    } finally {
+
+      setGenImg(false);
+      setActiveTab("");
+
+    }
   }
 
   const handleDecals = (type, result) => {
@@ -94,41 +126,13 @@ const Customizer = () => {
     })
   }
 
-  const handleSubmit = async (type) => {
-
-    if(!prompt) return alert("Ask me something !");
-
-    try {
-
-      setGenImg(true);
-
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          prompt,
-        })
+  const readFile = ( type ) => {
+    reader(file)
+      .then((result) => {
+        handleDecals(type, result);
+        setActiveTab("");
       })
-
-      const data = await response.json();
-
-      handleDecals(type, `data:image/png;base64,${data.photo}`)
-
-    } catch (error) {
-
-      alert(error)
-
-    } finally {
-
-      setGenImg(false);
-      setActiveTab("");
-
-    }
-
   }
-
 
   return (
 
