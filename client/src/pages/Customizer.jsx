@@ -57,13 +57,7 @@ const Customizer = () => {
 
       setGenImg(true);
 
-      //  https://vroom-vroom.onrender.com
-
-      /* "engines": {
-  "node": ">=14 <15"
-}, */
-
-      const response = await fetch('http://localhost:8080/api/v1/dalle', {
+      const response = await fetch('https://vroom-vroom.onrender.com/api/v1/dalle', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
